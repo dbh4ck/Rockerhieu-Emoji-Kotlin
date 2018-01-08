@@ -1,0 +1,94 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:emojicon="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:orientation="vertical">
+
+
+    <RelativeLayout android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/rl"
+        android:layout_weight="1.0">
+
+
+        <com.db.rockerheiui_emoji_kotlin.helper.EmojiconTextView
+            android:id="@+id/txtk"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_alignParentTop="true"
+            android:divider="@android:color/transparent" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/sendMessage_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="10dp"
+        android:layout_alignParentLeft="true"
+        android:paddingTop="10dp">
+
+
+        <com.db.rockerheiui_emoji_kotlin.helper.EmojiconEditText
+            android:id="@+id/RMsgTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            emojicon:emojiconSize="28sp"
+            android:layout_alignParentLeft="true"
+            android:layout_toLeftOf="@+id/ImgbtnEmoji"
+            android:layout_weight="1.0"
+            android:maxLength="1024"
+            android:textColor="@color/theme_blue1"
+            android:maxLines="3"
+            android:hint="Type a message"
+            android:textColorHint="#bdbdbd"
+            android:paddingLeft="@dimen/chatroom_compose_text_padding_left"
+            android:paddingRight="@dimen/chatroom_compose_text_padding_right"
+            android:backgroundTint="@color/transparent"
+            android:ems="10"
+            android:maxHeight="80dp" />
+
+        <ImageView
+            android:id="@+id/ImgbtnEmoji"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_toLeftOf="@+id/ImgbtnRSend"
+            android:clickable="true"
+            android:src="@drawable/ic_chat_inputbox_emoticon_inactive"
+            android:paddingRight="@dimen/chat_emoticon_padding_right"
+            android:paddingTop="@dimen/chat_emoticon_padding_top"
+            android:paddingLeft="@dimen/chat_emoticon_padding_left"
+            android:paddingBottom="@dimen/chat_emoticon_padding_bottom" />
+
+
+        <ImageButton
+            android:id="@+id/ImgbtnRSend"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:background="@color/transparent"
+            android:src="@drawable/ic_chat_inputbox_send_inactive"
+            android:paddingLeft="@dimen/chatroom_send_button_padding_left"
+            android:paddingRight="@dimen/chatroom_send_button_padding_right" />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/emojicons"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/sticker_chooser_view_height"
+        android:background="@color/sticker_background"
+        android:visibility="visible">
+
+        <fragment
+            android:id="@+id/emojicons_fragment"
+            class="com.db.rockerheiui_emoji_kotlin.helper.EmojiconsFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </FrameLayout>
+
+
+</LinearLayout>
